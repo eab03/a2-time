@@ -20,9 +20,9 @@ let ellipse2;
 let ellipse3;
 
 function setup() {
-    let canvas = createCanvas(800, 800);
-    canvas.position(15, 275);
-    canvas.parent('container');
+    let canvas = createCanvas(700, 700);
+    canvas.position(140, 300);
+    canvas.parent('mycontainer');
   stroke(1);
 }
 
@@ -172,31 +172,4 @@ function flowerFour() {
   }
   endShape(CLOSE);
 
-  // let S = second();
-  let m = minute();
-  let h = hour();
-
-  // let sColor = map(S, 0, 59, 255, 125);
-  let mColor = map(m, 0, 59, 126, 50);
-  let hColor = map(h, 0, 23, 49, 0);
-
-  text(s, 9, 180);
-  text(m, 9, 230);
-  text(h, 9, 280);
-
-  let r1 = map(s, 0, 59, 25, 153);
-  let g1 = map(s, 0, 59, 25, 153);
-  let b1 = map(s, 0, 59, 112, 227);
-
-  let r2 = map(s, 0, 59, 153, 25);
-  let g2 = map(s, 0, 59, 153, 25);
-  let b2 = map(s, 0, 59, 227, 112);
-
-  text(sColor, 9, 200);
-  text(mColor, 9, 250);
-  text(hColor, 9, 300);
-
-  text(r1, 9, 220);
-  text(g1, 9, 270);
-  text(b1, 9, 290);
 }

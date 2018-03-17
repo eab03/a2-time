@@ -1,15 +1,15 @@
 // First assignment for Creative Explorations on the Web
 
 function setup() {
-    let canvas = createCanvas(800, 800);
-    canvas.position(15, 275);
-    canvas.parent('container');
-  angleMode(DEGREES);
+    let canvas = createCanvas(700, 700);
+    canvas.position(140, 300);
+    canvas.parent('mycontainer');
+    angleMode(DEGREES);
 }
 
 function draw() {
   background(0);
-  // MOVE ORIGIN TO CENTER OF CANVAS AND ROTATE -90 DEGREES
+  // move origin of the canvas to the center and rotate 90 degrees
   translate(width / 2, height / 2);
 
   let h = hour();
@@ -20,6 +20,13 @@ function draw() {
   let mappedS = map(s, 0, 60, 0, 360) - 90;
   let mappedM = map(m + s / 60, 0, 60, 0, 360) - 90;
   let mappedH = map(h + m / 60, 0, 24, 0, 360 * 2) - 90;
+
+  // DRAW THE OUTER SQUARES
+  fill("salmon");
+  rect(-275, -275, 550, 550); // changes color each minute
+
+  fill("black");
+  rect(-212.5, -212.5, 425, 425); // changes color each hour
 
   // DRAW CLOCK FACE BACKGROUND
   fill("salmon");
@@ -62,7 +69,7 @@ function draw() {
   push();
   rotate(-90);
 
-  //hour hand
+  // hour hand
   push();
   rotate(mappedH);
   strokeWeight(4);
@@ -103,7 +110,9 @@ function draw() {
   if (m < 10) {
     m = "0" + m;
   }
-  stroke("white");
-  textSize(25);
-  text(nf(h) + ":" + nf(m) + ":" + nf(s), 150, 150);
+
+  noStroke();
+  fill("white");
+  textSize(35);
+  text(nf(h) + ":" + nf(m) + ":" + nf(s), -60, 255);
 }

@@ -3,27 +3,22 @@ let mouseClicks = 0;
 let loopCount = 0;
 
 function setup() {
-  let canvas = createCanvas(800, 800);
-  canvas.position(15, 275);
-  canvas.parent('container');
+  let canvas = createCanvas(700, 700);
+  canvas.position(140, 300);
+  canvas.parent('mycontainer');
+  background("black");
 }
 
-function draw() {}
+function draw() {
+let s = "Click the MOUSE to begin!  Press any KEY to start over!"
+noStroke();
+fill("white");
+textSize(20);
+text(s, 50, 50); // Text wraps within text box
+}
 
 //mouse click event handler
 function mousePressed() {
-  background(204, 234, 255, 100);
-//   let h = hour();
-//   let m = minute();
-//   let s = second();
-
-//   let sColor = map(s, 0, 59, 255, 125);
-//   let mColor = map(m, 0, 59, 126, 50);
-//   let hColor = map(h, 0, 23, 49, 0);
-
-
-
-
 
   /// reset loop count to zero before we enter loop
   loopCount = 0;
@@ -35,8 +30,8 @@ function mousePressed() {
   //for every x, the outer loop, draw on the y coordinate till we reach max height
   //we added 30 pixels so we do not start from 0, so we have a margin
 
-  for (var y = 50; y <= height - 20; y += 100) {
-    for (var x = 50; x <= width - 20; x += 150) {
+  for (var y = 100; y <= height - 150; y += 100) {
+    for (var x = 50; x <= width - 20; x += 170) {
       //set the stroke black
       stroke(0);
       //Canvas "grid"
@@ -71,7 +66,5 @@ function keyPressed() {
   loopCount = 0;
   mouseClicks = 0;
   clear();
-  background("blue");
-  color("yellow");
-  text("Click the Mouse!");
+   background("black");
 }
