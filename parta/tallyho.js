@@ -6,7 +6,7 @@ function setup() {
   let canvas = createCanvas(700, 700);
   canvas.position(140, 300);
   canvas.parent('mycontainer');
-  background("black");
+  background(169, 169, 169);
 }
 
 function draw() {
@@ -44,7 +44,7 @@ function mousePressed() {
       for (let i = 20; i < 100; i = i + 20) {
         if (loopCount < mouseClicks) {
           console.log("rect:" + loopCount + " - clicks: " + mouseClicks);
-          stroke("salmon");
+          stroke("black");
           strokeWeight(3);
           line(x + i, y, x + i, y + 50);
           //we are counting the number of rectangles in the cell grid
@@ -52,8 +52,8 @@ function mousePressed() {
         }
       }
       if (loopCount < mouseClicks) {
-        stroke("red");
-        strokeWeight(5);
+        stroke("salmon");
+        strokeWeight(3);
         loopCount++;
         line(x, y + 45, x + 100, y + 5);
       }
@@ -66,5 +66,5 @@ function keyPressed() {
   loopCount = 0;
   mouseClicks = 0;
   clear();
-   background("black");
+  background(169, 169, 169);
 }
