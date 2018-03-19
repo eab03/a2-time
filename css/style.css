@@ -1,60 +1,38 @@
 
 body {
     font-family: 'Comfortaa', cursive;
+    margin: 0 auto;
     width: 100%;
 }
 
 /* header */
-
 header {
     background-color: white;
     color: black;
     font-style: bold;
-    height: 9em;
-    padding: 15px 55px 0px 75px;
-    margin-left: 55px;
-    width: 100%;
-    clear: all;
+    height: 75px;
+    margin: 50px 0px 0px 140px;
 }
 
-header h1, header h2 {
-    padding-top: 15px;
+header h1 {
+    font-size: 210%;
 }
 
-header h2 {
-    font-weight: normal;
-    font-size: 125%;
-    color: salmon;
-    font-family: 'Open Sans', sans-serif;
-    margin-left: 2em;
-}
-
-#left {
-    float: left;
-}
-
-#right {
-    float: right;
-    margin-right: 20em;
-}
-
-/* === site nav === */
-
+/* site navigation */
 nav#site-nav {
-	font-size: 1.4em;
     font-family: 'Open Sans', sans-serif;
-    margin-bottom: 3.5em;
-    margin-left: 4.5em;
-    position: relative;
+    font-size: 145%;
+    margin-left: 160px;
 }
 
 nav#site-nav ul {
 	list-style-type: none;
+    margin-right: 15px;
 }
 
 nav#site-nav ul li {
 	display: inline;
-	padding: 1.5em;
+	padding-left: 1.5em;
 }
 
 nav#site-nav a:link, a:visited, a:hover, a:active {
@@ -63,7 +41,7 @@ nav#site-nav a:link, a:visited, a:hover, a:active {
 }
 
 a#youarehere {
-    color: black    ;
+    color: black;
     font-weight: bold;
 }
 
@@ -78,7 +56,6 @@ a#youarehere {
 }
 
 /* quote on home page */
-
 #description p {
     font-family: 'Open Sans', sans-serif;
     line-height: 150%;
@@ -104,8 +81,6 @@ a#youarehere {
     float: left;
 }
 
-/* canvas positioning */
-
 #mycontainer {
-    margin-left: 50px;
+    margin: 50px 0px 0px 140px;
 }

@@ -1,175 +1,203 @@
-/* based on rose math algorithm- please read if interested at:
-/  https://en.wikipedia.org/wiki/Rose_(mathematics)
-/  Rose curves defined by
-/  r=cos(k)*theta, for various values of petals k=n/d.
+// ADD Which week the example is from
+// Check the code for the mapping of the background - may not be cyclical
+// Check the rotation on the hour (does this happen)?
+// Verify code at midnight
+
+
+// Second assignment for Creative Explorations on the Web
+// Part C: Abstract Clock
+
+/*
+/  My intention for this part of the assignment is to create a mandala with elements
+/  that  move and/or change color based the passing of seconds, minutes and hours.
+*/
+
+/*
+/  A note about the code for the flowers:
+/  This code is primarily based upon that of the rose math algorithm --
+/  provided as a class example and about which more information can be
+/  found here: https://en.wikipedia.org/wiki/Rose_(mathematics).
 */
 
 // CREATE VARIABLES
-// math rose constants, nominator and denominator
-let r; // original code 7
-let n = 14;
+// based on the class example, these are modified values for the math rose constants, nominator and denominator
+let r;
+let n;
 let d = 8;
 
-// rgb values for the background
+// rgb values for the blue background (outer square)
 let r1, g1, b1;
 let r2, g2, b2;
 
-// center ellipses
+// center circles
 let ellipse1;
 let ellipse2;
 let ellipse3;
 
 function setup() {
     let canvas = createCanvas(700, 700);
-    canvas.position(140, 300);
     canvas.parent('mycontainer');
-  stroke(1);
-}
+    stroke(1);
+} // close function setup
 
 function draw() {
-  let h = hour();
-  let m = minute();
-  let s = second();
+    let h = hour();
+    let m = minute();
+    let s = second();
 
-  // map values of petal and ellipse colors to the second, minute, or hour
-  let sColor = map(s, 0, 59, 255, 125);
-  let mColor = map(m, 0, 59, 124, 50);
-  let hColor = map(h, 0, 23, 49, 0);
+    // map color values of petal and circle to the second, minute, or hour
+    let sColor = map(s, 0, 59, 255, 125);
+    let mColor = map(m, 0, 59, 124, 50);
+    let hColor = map(h, 0, 23, 49, 0);
 
-  translate(width / 2, height / 2);
-  strokeWeight(1);
+    // move origin of the canvas to the center
+    translate(width / 2, height / 2);
+    strokeWeight(1);
 
-  // DRAW BACKGROUND
-  // change stroke and background color at midnight and noon
-  // change background color based on the second
-  backgroundDraw();
+    // DRAW BACKGROUND
+    // change stroke and background color at midnight and noon
+    // change background color (outer square) based on the second
+    backgroundDraw();
 
-  // DRAW MANDALA DESIGN
+    // DRAW MANDALA DESIGN
+    // inner squares
+    fill(mColor); // minute color
+    rect(-275, -275, 550, 550); // changes color each minute
 
-  fill(mColor);
-  rect(-275, -275, 550, 550); // changes color each minute
+    fill(hColor); // hour color
+    rect(-212.5, -212.5, 425, 425); // changes color each hour
 
-  fill(hColor);
-  rect(-212.5, -212.5, 425, 425); // changes color each hour
+    flowerOne(); // outer flower, changes color each minute
 
-  ellipse1 = new Ellipse(0, 0, 275, hColor); // changes color each hour
-  ellipse1.display();
+    // middle circles
+    ellipse1 = new Ellipse(0, 0, 275, hColor); // changes color each hour
+    ellipse1.display();
 
-  flowerOne(); // outer flower, changes color each minute
+    ellipse2 = new Ellipse(0, 0, 250, mColor); // changes color each minute
+    ellipse2.display();
 
-  ellipse1 = new Ellipse(0, 0, 275, hColor); // changes color each hour
-  ellipse1.display();
+    ellipse3 = new Ellipse(0, 0, 225, sColor); // changes color each second
+    ellipse3.display();
 
-  ellipse2 = new Ellipse(0, 0, 250, mColor); // changes color each minute
-  ellipse2.display();
+    // center flowers
+    flowerTwo(); // rotates and changes color each hour
+    flowerThree(); // rotates clockwise and changes color each minute
+    flowerFour(); // rotates clockwise each second
 
-  ellipse3 = new Ellipse(0, 0, 225, sColor); // changes color each second
-  ellipse3.display();
-
-  flowerTwo(); // rotates and changes color on the hour
-  flowerThree(); // rotates and changes color on the minute
-  flowerFour(); // rotates each second
-}
+} // close function draw
 
 function backgroundDraw() {
-  let h = hour();
-  let m = minute();
-  let s = second();
+    let h = hour();
+    let m = minute();
+    let s = second();
 
-  // map background color to the second
-  r1 = map(s, 0, 59, 25, 153);
-  g1 = map(s, 0, 59, 25, 153);
-  b1 = map(s, 0, 59, 112, 227);
+    // map background (outer blue square) color to the second
+    // zero to twenty-nine seconds
+    r1 = map(s, 0, 59, 25, 152);
+    g1 = map(s, 0, 59, 25, 152);
+    b1 = map(s, 0, 59, 112, 226);
 
-  r2 = map(s, 0, 59, 153, 25);
-  g2 = map(s, 0, 59, 153, 25);
-  b2 = map(s, 0, 59, 227, 112);
+    // thirty to fifty-nine seconds
+    // midnight blue: rgb(153, 153, 227)
+    r2 = map(s, 0, 59, 153, 26);
+    g2 = map(s, 0, 59, 153, 26);
+    b2 = map(s, 0, 59, 227, 111);
 
-  if ((h == 0) & (m == 1) || (h == 12) & (m == 1)) {
-    stroke(255, 215, 0);
-    background(255, 215, 0);
-  } else {
-    stroke(250, 128, 114);
-  }
+    // at exactly midnight and noon, change the stroke and background color to gold
+    if ((h == 0) & (m == 1) || (h == 12) & (m == 1)) {
+        stroke(255, 215, 0); // gold
+        background(255, 215, 0); // gold
+    } else {
+        stroke(250, 128, 114); // salmon
+    }
 
-  //change background color based on the second
-  if ((s >= 0) & (s < 29)) {
-    background(r2, g2, b2, 100);
-  } else if ((s >= 30) & (s < 59)) {
-    background(r1, g1, b1);
-  }
-}
+    // change the background color based on the second to create a cyclical pattern of
+    // the color being the lightest at zero seconds, and darkest at 30 seconds
+    if ((s >= 0) & (s <= 29)) {
+        background(r2, g2, b2);
+    } else if ((s >= 30) & (s <= 59)) {
+        background(r1, g1, b1);
+    }
+
+} // close backgroundDraw function
 
 // CREATE THE ELLIPSE OBJECT
 function Ellipse(tempX, tempY, tempD, tempColor) {
-  this.x = tempX;
-  this.y = tempY;
-  this.diameter = tempD;
-  this.color = tempColor;
+    this.x = tempX;
+    this.y = tempY;
+    this.diameter = tempD;
+    this.color = tempColor;
 
-  this.display = function() {
-    ellipse(this.x, this.y, this.diameter, this.diameter, fill(this.color));
-  };
-}
+    this.display = function() {
+        ellipse(this.x, this.y, this.diameter, this.diameter, fill(this.color));
+    };
+} // close Ellipse function
 
-// CREATE FUNCTIONS FOR EACH FLOWER
+// CREATE FUNCTIONS FOR EACH FLOWER, STARTING WITH THE OUTERMOST FLOWER
+// color changes based on the minute
 function flowerOne() {
-  let m = minute();
-  let mColor = map(m, 0, 59, 126, 50);
+    let m = minute();
+    let mColor = map(m, 0, 59, 126, 50);
+    let n = 14;
 
-  beginShape();
-  for (var a = 0; a < TWO_PI * d; a += 0.03) {
-    fill(mColor);
-    var r = 160 * cos(n / d * a);
-    var x = r * cos(a);
-    var y = r * sin(a);
-    vertex(x, y);
-  }
-  endShape(CLOSE);
-}
+    beginShape();
+    for (var a = 0; a < TWO_PI * d; a += 0.03) {
+        fill(mColor);
+        let r = 160 * cos(n / d * a);
+        let x = r * cos(a);
+        var y = r * sin(a);
+        vertex(x, y);
+    }
+    endShape(CLOSE);
+} // close flowerOne function
 
+// color changes based on the hour
 function flowerTwo() {
-  let h = hour();
-  let hColor = map(h, 0, 23, 49, 0);
+    let h = hour();
+    let hColor = map(h, 0, 23, 49, 0);
 
-  beginShape();
-  for (var a = 0; a < TWO_PI * d; a += 0.03) {
-    fill(hColor);
-    var r = 100 * cos(h + 18 / d * a);
-    var x = r * cos(a);
-    var y = r * sin(a);
-    vertex(x, y);
-  }
-  endShape(CLOSE);
-}
+    let n = h;
 
+    beginShape();
+    for (var a = 0; a < TWO_PI * d; a += 0.03) {
+        fill(hColor);
+        var r = 100 * cos(n + 18 / d * a);
+        var x = r * cos(a);
+        var y = r * sin(a);
+        vertex(x, y);
+    }
+    endShape(CLOSE);
+} // close flowerTwo function
+
+// color changes based on the minute, and rotates clockwise each minute
 function flowerThree() {
-  let m = minute();
-  let mColor = map(m, 0, 59, 126, 50);
+    let m = minute();
+    let mColor = map(m, 0, 59, 126, 50);
+    let n = m;
 
-  beginShape();
-  for (var a = 0; a < TWO_PI * d; a += 0.03) {
-    fill(mColor);
-    var r = 60 * cos(m + 12 / d * a);
-    var x = r * cos(a);
-    var y = r * sin(a);
-    vertex(x, y);
-  }
-  endShape(CLOSE);
-}
+    beginShape();
+    for (var a = 0; a < TWO_PI * d; a += 0.03) {
+        fill(mColor);
+        var r = 60 * cos(n + 12 / d * a);
+        var x = r * cos(a);
+        var y = r * sin(a);
+        vertex(x, y);
+    }
+    endShape(CLOSE);
+} // close flowerThree function
 
+// innermost flower, rotates clockwise every second
 function flowerFour() {
-  let s = second();
-  let sColor = map(s, 0, 59, 255, 125);
+    let s = second();
+    let n = s;
 
-  beginShape();
-  for (var a = 0; a < TWO_PI * d; a += 0.03) {
-    fill(0);
-    var r = 20 * cos(s - 22 / d * a);
-    var x = r * cos(a);
-    var y = r * sin(a);
-    vertex(x, y);
-  }
-  endShape(CLOSE);
-
-}
+    beginShape();
+    for (var a = 0; a < TWO_PI * d; a += 0.03) {
+        fill(0);
+        var r = 20 * cos(n - 22 / d * a);
+        var x = r * cos(a);
+        var y = r * sin(a);
+        vertex(x, y);
+    }
+    endShape(CLOSE);
+} // close flowerFour function
