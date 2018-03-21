@@ -92,21 +92,21 @@ function backgroundDraw() {
     let s = second();
 
     // map background (outer blue square) color to the second
+    // midnight blue: rgb(25, 25, 112)
     // zero to twenty-nine seconds
-    r1 = map(s, 0, 59, 25, 152);
-    g1 = map(s, 0, 59, 25, 152);
-    b1 = map(s, 0, 59, 112, 226);
+    r1 = map(s, 0, 59, 152, 26);
+    g1 = map(s, 0, 59, 152, 26);
+    b1 = map(s, 0, 59, 226, 113);
 
     // thirty to fifty-nine seconds
-    // midnight blue: rgb(153, 153, 227)
-    r2 = map(s, 0, 59, 153, 26);
-    g2 = map(s, 0, 59, 153, 26);
-    b2 = map(s, 0, 59, 227, 111);
+    r2 = map(s, 0, 59, 25, 151);
+    g2 = map(s, 0, 59, 25, 151);
+    b2 = map(s, 0, 59, 112, 225);
 
-    // at exactly midnight and noon, change the stroke and background color to gold
-    if ((h == 0) & (m == 1) || (h == 12) & (m == 1)) {
+    // at exactly midnight, noon and every three hours in between
+    // change the stroke color to gold
+    if ((h == 0) & (m == 1) || (h % 3 == 0) & (m == 1)) {
         stroke(255, 215, 0); // gold
-        background(255, 215, 0); // gold
     } else {
         stroke(250, 128, 114); // salmon
     }
@@ -114,9 +114,9 @@ function backgroundDraw() {
     // change the background color based on the second to create a cyclical pattern of
     // the color being the lightest at zero seconds, and darkest at 30 seconds
     if ((s >= 0) & (s <= 29)) {
-        background(r2, g2, b2);
-    } else if ((s >= 30) & (s <= 59)) {
         background(r1, g1, b1);
+    } else if ((s >= 30) & (s <= 59)) {
+        background(r2, g2, b2);
     }
 
 } // close backgroundDraw function

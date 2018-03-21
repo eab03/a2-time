@@ -13,13 +13,19 @@ let loopCount = 0;
 function setup() {
     let canvas = createCanvas(700, 700);
     canvas.parent('mycontainer');
-    background(169, 169, 169);
+    background(0);
+
+    noStroke();
+    fill(80);
+    rect(0, 0, 700, 75);
+    fill("salmon");
+    rect(0, 675, 700, 25);
 
     let s = "Click the MOUSE to begin!  Press any KEY to start over!"
-    noStroke();
-    fill(0);
-    textSize(21.25);
-    text(s, 90, 50);
+    strokeWeight(0);
+    fill(255);
+    textSize(23);
+    text(s, 60, 50);
 } // close setup function
 
 function draw() {}
@@ -38,10 +44,10 @@ function mousePressed() {
     // grid cell width is xOffset and grid cell height is yOffset
 
     let xOffset = 170;
-    let yOffset = 100;
+    let yOffset = 150;
     let objOffset = 20;
 
-    for (var y = 100; y <= height; y += yOffset) {
+    for (var y = 125; y <= height; y += yOffset) {
         for (var x = 50; x <= width; x += xOffset) {
             // starting in this first cell at x,y position 50,100
             // draw a series of four tally marks with a width of 20 (objOffset)
@@ -50,8 +56,8 @@ function mousePressed() {
             for (let i = 20; i < 100; i = i + objOffset) {
                 if (loopCount < mouseClicks) {
                     console.log("line:" + loopCount + " - clicks: " + mouseClicks);
-                    stroke(0);
-                    strokeWeight(3);
+                    stroke(255);
+                    strokeWeight(4);
                     line(x + i, y, x + i, y + 50); // draw line
                     loopCount++; // count the number of tally marks in the cell grid
                 }
@@ -60,7 +66,7 @@ function mousePressed() {
             // if there are four tally marks, draw the line through them
             if (loopCount < mouseClicks) {
                 stroke("salmon");
-                strokeWeight(3);
+                strokeWeight(5);
                 loopCount++;
                 line(x, y + 45, x + 100, y + 5); // draw line
             }
@@ -74,11 +80,17 @@ function keyPressed() {
     mouseClicks = 0;
 
     clear();
-    background(169, 169, 169);
+    background(0);
+
+    noStroke();
+    fill(75);
+    rect(0, 0, 700, 75);
+    fill("salmon");
+    rect(0, 675, 700, 25);
 
     let t = "Click the MOUSE again!  Press any KEY to start over!"
-    noStroke();
-    fill("black");
-    textSize(21.25);
-    text(t, 90, 50);
+    strokeWeight(0);
+    fill(255);
+    textSize(23);
+    text(t, 75, 50);
 } // close keyPressed function

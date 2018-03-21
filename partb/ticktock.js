@@ -29,6 +29,11 @@ function draw() {
     rect(-212.5, -212.5, 425, 425); // changes color each hour
 
     // DRAW CLOCK FACE BACKGROUND
+    stroke("salmon");
+    strokeWeight(5);
+    fill(255);
+    ellipse(0, 0, 335);
+
     fill("salmon");
     ellipse(0, 0, 300);
 
