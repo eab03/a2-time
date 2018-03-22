@@ -25,19 +25,18 @@ header h1 {
 
 /* site navigation */
 nav#site-nav {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 150%;
     margin-bottom: 50px;
-    margin-left: 170px;
+    margin-left: 180px;
 }
 
 nav#site-nav ul {
-	list-style-type: none;
-    margin-right: 15px;
+    list-style-type: none;
 }
 
 nav#site-nav ul li {
 	display: inline;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 145%;
 	padding-right: 1.6em;
 }
 
