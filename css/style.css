@@ -111,11 +111,13 @@ footer h2 {
 }
 
 /* media queries */
-@media only screen and (max-width: 640px),
-    only screen and (max-width: 667px),
-    only screen and (max-width: 480px) {
-    nav#site-nav {
-        margin-left: 140px;
-        margin-right: 500px;
+@media only screen
+and (min-width : 300px)
+and (max-width : 900px) {
+    nav#site-nav ul li {
+    	display: inline;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 115%;
+    	padding-right: 1.6em;
     }
 }

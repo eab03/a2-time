@@ -23,7 +23,8 @@ function setup() {
     // text at the top
     let text1 = "Click the MOUSE to begin!  Press any KEY to start over!"
     fill(255);
-    textSize(23);
+    textFont("Comfortaa");
+    textSize(20);
     text(text1, 60, 50);
 } // close setup function
 
@@ -86,6 +87,7 @@ function keyPressed() {
     let text2 = "Click the MOUSE again!  Press any KEY to start over!"
     strokeWeight(0);
     fill(255);
-    textSize(23);
+    textFont("Comfortaa");
+    textSize(20);
     text(text2, 75, 50);
 } // close keyPressed function
