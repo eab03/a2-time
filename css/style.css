@@ -112,7 +112,7 @@ footer h2 {
 }
 
 /* media queries */
-@media only screen and (min-width : 375px) and (max-width: 667px) {
+@media only screen and (min-width: 375px) and (max-width: 667px) {
     nav#site-nav {
         font-size: 100%;
         margin-left: 125px;}
