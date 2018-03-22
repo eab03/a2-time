@@ -121,11 +121,6 @@ footer h2 {
     }
 }
 
-@media only screen and (min-width: 1000px) {
-	body {
-		width: 95%;
-	}
-}
 @media only screen and (min-width: 1100px) {
 	body {
 		width: 82.5%;
