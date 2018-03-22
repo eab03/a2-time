@@ -1,6 +1,5 @@
 
 body {
-    clear: all;
     font-family: 'Comfortaa', cursive;
     margin: 0 auto;
     width: 100%;
@@ -12,14 +11,14 @@ header {
     color: black;
     font-style: bold;
     height: 75px;
-    margin: 50px 0px 0px 140px;
 }
 
 header h1 {
-    font-size: 250%;
+    font-size: 225%;
+    margin: 50px 0px 0px 140px;
 }
 
-/* home page only */
+/* h1 on home page */
 #title {
     color: salmon;
 }
@@ -28,6 +27,7 @@ header h1 {
 nav#site-nav {
     font-family: 'Open Sans', sans-serif;
     font-size: 150%;
+    margin-bottom: 125px;
     margin-left: 145px;
 }
 
@@ -51,32 +51,44 @@ a#youarehere {
     font-weight: bold;
 }
 
-/* home page only */
-.quote {
+/* quote on home page */
+.quote p {
     color: darkgrey;
     font-family: 'Comfortaa', cursive;
-    font-size: 155%;
+    font-size: 120%;
     font-weight: bold;
-    height: 150px;
-    line-height: 150%;
-    margin: 0px, 140px;
-    padding-top: 100px;
+    line-height: 200%;
+    margin-left: 275px;
+    padding-top: 100px 0px;
     text-align: left;
-}
-
-.quote p {
-    margin-left: 225px;
 }
 
 .quote span {
     color: salmon;
 }
-.credit {
-        color: salmon;
-        float: right;
-        font-size: 75%;
-        font-weight: bold;
-        margin: 150px 150px 0px 100px;
+
+/* footer on home page */
+footer {
+    clear: all;
+    margin-top: 125px;
+}
+
+#left, #right {
+    font-family: 'Comfortaa', cursive;
+    font-size: 110%;
+    font-weight: bold;
+}
+
+#left {
+    color: darkgrey;
+    float: left;
+    margin-left: 140px;
+}
+
+#right {
+    color: salmon;
+    float: right;
+    margin-right: 160px;
 }
 
 /* p5 canvas */
