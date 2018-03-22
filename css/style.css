@@ -1,8 +1,17 @@
+/* style sheet for home page */
 
 body {
+    background-color: darkgrey;
     font-family: 'Comfortaa', cursive;
     margin: 0 auto;
     max-width: 900px;
+    padding-top: 15px;
+}
+
+.container {
+    background-color: white;
+    border: 10px outset;
+    height: 650px;
 }
 
 /* header */
@@ -26,8 +35,8 @@ header h1 {
 /* site navigation */
 nav#site-nav {
     margin-bottom: 50px;
-    margin-left: 150px;
-    margin-right: 140px;
+    margin-left: 175px;
+    margin-right: 130px;
 }
 
 nav#site-nav ul {
@@ -37,7 +46,7 @@ nav#site-nav ul {
 nav#site-nav ul li {
 	display: inline;
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.35em;
+    font-size: 1.25em;
 	padding-right: 2em;
 }
 
@@ -110,9 +119,4 @@ footer h2 {
 
 #bottom {
     color: salmon;
-}
-
-/* p5 canvas */
-#mycontainer {
-    margin: 50px 0px 0px 110px;
 }

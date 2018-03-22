@@ -1,0 +1,59 @@
+/* style sheet for tallyho, ticktock and abstractclock */
+
+body {
+    font-family: 'Comfortaa', cursive;
+    margin: 0 auto;
+    max-width: 900px;
+    padding-top: 15px;
+}
+
+/* header */
+header {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    height: 75px;
+}
+
+header h1 {
+    font-size: 2.3em;
+    margin: 50px 0px 0px 110px;
+}
+
+/* site navigation */
+nav#site-nav {
+    margin-bottom: 50px;
+    margin-left: 175px;
+    margin-right: 130px;
+}
+
+nav#site-nav ul {
+    list-style-type: none;
+}
+
+nav#site-nav ul li {
+	display: inline;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.25em;
+	padding-right: 2em;
+}
+
+/* last li */
+#last {
+    padding-right: 0em;
+}
+
+nav#site-nav a:link, a:visited, a:hover, a:active {
+	color: darkgrey;
+	text-decoration: none;
+}
+
+a#youarehere {
+    color: black;
+    font-weight: bold;
+}
+
+/* p5 canvas */
+#mycontainer {
+    margin: 50px 0px 0px 110px;
+}
