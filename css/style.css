@@ -117,4 +117,8 @@ footer h2 {
     nav#site-nav {
         margin-left: 140px;
     }
+    nav#site-nav ul li {
+        font-size: 145%;
+    	padding-right: 2em;
+    }
 }
