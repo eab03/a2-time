@@ -1,5 +1,5 @@
 body {
-    background-color: salmon;
+    background-color: darkgrey;
     font-family: 'Comfortaa', cursive;
     margin: 0 auto;
     max-width: 900px;
@@ -8,7 +8,7 @@ body {
 
 .container {
     background-color: white;
-    height: 650px;
+    height: 625px;
     padding-top: 30px;
 }
 
