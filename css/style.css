@@ -27,6 +27,7 @@ header h1 {
 nav#site-nav {
     margin-bottom: 50px;
     margin-left: 150px;
+    margin-right: 140px;
 }
 
 nav#site-nav ul {
@@ -36,8 +37,13 @@ nav#site-nav ul {
 nav#site-nav ul li {
 	display: inline;
     font-family: 'Open Sans', sans-serif;
-    font-size: 145%;
-	padding-right: 1.6em;
+    font-size: 135%;
+	padding-right: 2em;
+}
+
+/* last li */
+#last {
+    padding-right: 0em;
 }
 
 nav#site-nav a:link, a:visited, a:hover, a:active {
@@ -70,7 +76,7 @@ a#youarehere {
 
 #author {
     font-style: italic;
-    font-size: 100%;
+    font-size: 90%;
     margin-left: 332.5px;
 }
 
@@ -82,9 +88,10 @@ footer {
 
 img {
     float: left;
-    margin-left: 180px;
-    height: 12%;
-    width: 12%;
+    margin-top: 10px;
+    margin-left: 260px;
+    height: 10%;
+    width: 10%;
 }
 
 footer h2 {
@@ -93,7 +100,7 @@ footer h2 {
     font-size: 110%;
     font-weight: bold;
     line-height: 35px;
-    margin-left: 120px;
+    margin-left: 37.5px;
     text-align: right;
 }
 
