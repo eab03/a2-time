@@ -62,7 +62,7 @@ a#youarehere {
     font-size: 120%;
     font-weight: bold;
     line-height: 200%;
-    margin-left: 220px;
+    margin-left: 280px;
     text-align: left;
 }
 
@@ -72,16 +72,8 @@ a#youarehere {
 
 #author {
     font-style: italic;
-    margin-left: 340px;
-}
-
-/* image on home page */
-img {
-    float: left;
-    margin-left: 220px;
-    margin-top: 25px;
-    height: 12%;
-    width: 12%;
+    font-size: 100%;
+    margin-left: 400px;
 }
 
 /* footer on home page */
@@ -90,23 +82,29 @@ footer {
     margin-top: 125px;
 }
 
+img {
+    float: left;
+    margin-left: 220px;
+    height: 12%;
+    width: 12%;
+}
+
 footer h2 {
-    float: right;
+    float: left;
     font-family: 'Comfortaa', cursive;
     font-size: 110%;
     font-weight: bold;
-    margin-right: 210px;
+    line-height: 35px;
+    margin-left: 70px;
     text-align: right;
 }
 
 #top {
     color: black;
-    padding-top: 30px;
 }
 
 #bottom {
     color: salmon;
-    margin-top: 10px;
 }
 
 /* p5 canvas */
