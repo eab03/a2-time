@@ -2,7 +2,6 @@
 body {
     font-family: 'Comfortaa', cursive;
     margin: 0 auto;
-    padding-top: 10px;
     width: 100%;
 }
 
@@ -63,7 +62,7 @@ a#youarehere {
     font-size: 120%;
     font-weight: bold;
     line-height: 200%;
-    margin-left: 300px;
+    margin-left: 340px;
     text-align: left;
 }
 
@@ -71,25 +70,43 @@ a#youarehere {
     color: salmon;
 }
 
+#author {
+    font-style: italic;
+    margin-left: 340px;
+}
+
+/* image on home page */
+img {
+    float: left;
+    margin-left: 220px;
+    margin-top: 25px;
+    height: 12%;
+    width: 12%;
+}
+
 /* footer on home page */
 footer {
+    clear: all;
     margin-top: 125px;
 }
 
 footer h2 {
+    float: right;
     font-family: 'Comfortaa', cursive;
     font-size: 110%;
     font-weight: bold;
-    margin-right: 160px;
+    margin-right: 210px;
     text-align: right;
 }
 
 #top {
     color: black;
+    padding-top: 30px;
 }
 
 #bottom {
     color: salmon;
+    margin-top: 10px;
 }
 
 /* p5 canvas */
