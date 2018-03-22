@@ -112,6 +112,15 @@ footer h2 {
 }
 
 /* media queries */
+@media only screen and (max-width: 800px) {
+    nav#site-nav {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 120%;
+        margin-bottom: 50px;
+        margin-left: 145px;
+    }
+}
+
 @media only screen and (min-width: 1000px) {
 	body {
 		width: 95%;
