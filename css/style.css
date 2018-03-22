@@ -114,13 +114,14 @@ footer h2 {
 /* media queries */
 @media only screen and (max-width: 800px) {
     nav#site-nav {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 120%;
-        margin-bottom: 50px;
-        margin-left: 145px;
+        font-size: 100%;
     }
 }
-
+@media only screen and (min-width: 1100px) {
+	body {
+		width: 82.5%;
+	}
+}
 @media only screen and (min-width: 1100px) {
 	body {
 		width: 82.5%;
