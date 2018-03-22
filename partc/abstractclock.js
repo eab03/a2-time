@@ -1,15 +1,11 @@
-// ADD Which week the example is from
-// Check the code for the mapping of the background - may not be cyclical
-// Check the rotation on the hour (does this happen)?
-// Verify code at midnight
-
-
 // Second assignment for Creative Explorations on the Web
 // Part C: Abstract Clock
 
 /*
-/  My intention for this part of the assignment is to create a mandala with elements
-/  that  move and/or change color based the passing of seconds, minutes and hours.
+/  For the abstract clock, my design was inspired by paintings of mandalas
+/  at the yoga studio I go to. To illustrate the subtle passing of time, I tried to
+/  incorporate various elements that either move or change color (or both) with the
+/  passing of each second, minute or hour.
 */
 
 /*
@@ -20,7 +16,8 @@
 */
 
 // CREATE VARIABLES
-// based on the class example, these are modified values for the math rose constants, nominator and denominator
+// based on the class example, these are modified values for the math rose constants,
+// nominator and denominator
 let r;
 let n;
 let d = 8;
@@ -41,14 +38,14 @@ function setup() {
 } // close function setup
 
 function draw() {
-    let h = hour();
-    let m = minute();
     let s = second();
+    let m = minute();
+    let h = hour();
 
-    // map color values of petal and circle to the second, minute, or hour
+    // map color values to the second, minute, or hour
     let sColor = map(s, 0, 59, 255, 125);
-    let mColor = map(m, 0, 59, 124, 50);
-    let hColor = map(h, 0, 23, 49, 0);
+    let mColor = map(m, 0, 59, 124, 75);
+    let hColor = map(h, 0, 23, 74, 0);
 
     // move origin of the canvas to the center
     translate(width / 2, height / 2);
@@ -105,7 +102,7 @@ function backgroundDraw() {
 
     // at exactly midnight, noon and every three hours in between
     // change the stroke color to gold
-    if ((h == 0) & (m == 1) || (h % 3 == 0) & (m == 1)) {
+    if ((h == 0) & (m == 0) || (h % 3 == 0) & (m == 0)) {
         stroke(255, 215, 0); // gold
     } else {
         stroke(250, 128, 114); // salmon
@@ -113,6 +110,7 @@ function backgroundDraw() {
 
     // change the background color based on the second to create a cyclical pattern of
     // the color being the lightest at zero seconds, and darkest at 30 seconds
+    // reverse the pattern at second 31
     if ((s >= 0) & (s <= 29)) {
         background(r1, g1, b1);
     } else if ((s >= 30) & (s <= 59)) {
@@ -134,7 +132,7 @@ function Ellipse(tempX, tempY, tempD, tempColor) {
 } // close Ellipse function
 
 // CREATE FUNCTIONS FOR EACH FLOWER, STARTING WITH THE OUTERMOST FLOWER
-// color changes based on the minute
+// outermost flower: color changes each minute
 function flowerOne() {
     let m = minute();
     let mColor = map(m, 0, 59, 126, 50);
@@ -151,11 +149,10 @@ function flowerOne() {
     endShape(CLOSE);
 } // close flowerOne function
 
-// color changes based on the hour
+// outer middle flower: color changes and rotates each hour
 function flowerTwo() {
     let h = hour();
     let hColor = map(h, 0, 23, 49, 0);
-
     let n = h;
 
     beginShape();
@@ -169,7 +166,7 @@ function flowerTwo() {
     endShape(CLOSE);
 } // close flowerTwo function
 
-// color changes based on the minute, and rotates clockwise each minute
+// middle inner flower: color changes and rotates each minute
 function flowerThree() {
     let m = minute();
     let mColor = map(m, 0, 59, 126, 50);
@@ -186,7 +183,7 @@ function flowerThree() {
     endShape(CLOSE);
 } // close flowerThree function
 
-// innermost flower, rotates clockwise every second
+// innermost flower: rotates clockwise every second
 function flowerFour() {
     let s = second();
     let n = s;

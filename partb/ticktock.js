@@ -12,9 +12,9 @@ function draw() {
     // move origin of the canvas to the center and rotate 90 degrees
     translate(width / 2, height / 2);
 
-    let h = hour();
-    let m = minute();
     let s = second();
+    let m = minute();
+    let h = hour();
 
     // based on code from: https://processing.org/examples/clock.html
     let mappedS = map(s, 0, 60, 0, 360) - 90;
@@ -62,7 +62,7 @@ function draw() {
     pop();
 
     // DRAW CENTER ELLIPSES
-    stroke("white");
+    stroke(255);
     fill(255, 0, 0);
     strokeWeight(4);
     ellipse(0, 0, 75);
@@ -108,13 +108,13 @@ function draw() {
         h = 12;
     }
 
-    // add leading zeros
-    if (s < 10) {
-        s = "0" + s;
-    }
-
+    // add leading zeros to minutes and seconds
     if (m < 10) {
         m = "0" + m;
+    }
+
+    if (s < 10) {
+        s = "0" + s;
     }
 
     // draw digital clock numbers
