@@ -1,7 +1,7 @@
 
 body {
     font-family: 'Comfortaa', cursive;
-    margin: 0 auto;
+    margin: 0;
     width: 100%;
 }
 
@@ -28,7 +28,7 @@ nav#site-nav {
     font-family: 'Open Sans', sans-serif;
     font-size: 150%;
     margin-bottom: 50px;
-    margin-left: 145px;
+    margin-left: 170px;
 }
 
 nav#site-nav ul {
@@ -38,7 +38,7 @@ nav#site-nav ul {
 
 nav#site-nav ul li {
 	display: inline;
-	padding-left: 1.5em;
+	padding-right: 1.6em;
 }
 
 nav#site-nav a:link, a:visited, a:hover, a:active {
@@ -72,7 +72,7 @@ a#youarehere {
 #author {
     font-style: italic;
     font-size: 100%;
-    margin-left: 400px;
+    margin-left: 362.5px;
 }
 
 /* footer on home page */
@@ -94,7 +94,7 @@ footer h2 {
     font-size: 110%;
     font-weight: bold;
     line-height: 35px;
-    margin-left: 70px;
+    margin-left: 150px;
     text-align: right;
 }
 
@@ -112,13 +112,6 @@ footer h2 {
 }
 
 /* media queries */
-@media only screen and (min-width: 375px) and (max-width: 667px) {
-    nav#site-nav {
-        font-size: 100%;
-        margin-left: 125px;}
-    }
-}
-
 @media only screen and (min-width: 1100px) {
 	body {
 		width: 82.5%;
