@@ -22,9 +22,7 @@ header h1 {
 
 /* site navigation */
 nav#site-nav {
-    margin-bottom: 50px;
-    margin-left: 175px;
-    margin-right: 130px;
+    margin: 0px 130px 50px 175px;
 }
 
 nav#site-nav ul {
@@ -35,12 +33,12 @@ nav#site-nav ul li {
 	display: inline;
     font-family: 'Open Sans', sans-serif;
     font-size: 1.25em;
-	padding-right: 2em;
+    padding-right: 40px;
 }
 
 /* last li */
 #last {
-    padding-right: 0em;
+    padding-right: 0px;
 }
 
 nav#site-nav a:link, a:visited, a:hover, a:active {

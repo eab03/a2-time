@@ -2,17 +2,20 @@
 // Part C: Abstract Clock
 
 /*
-/  For the abstract clock, my design was inspired by paintings of mandalas
-/  at the yoga studio I go to. To illustrate the subtle passing of time, I tried to
-/  incorporate various elements that either move or change color (or both) with the
-/  passing of each second, minute or hour.
+/  For the abstract clock, my design was initially inspired by paintings of mandalas
+/  at the yoga studio I go to. To illustrate the subtle passing of time, my intention
+/  was to incorporate various elements in the sketch that either move or change color
+/  (or both) each second, minute or hour. These include the petals on the flowers, some of
+/  which both move and change color, and the concentric circles and outer square
+/  which only change color (as noted in the comments below).
 */
 
 /*
 /  A note about the code for the flowers:
-/  This code is primarily based upon that of the rose math algorithm --
-/  provided as a class example and about which more information can be
-/  found here: https://en.wikipedia.org/wiki/Rose_(mathematics).
+/  This part of my code is primarily directly based upon that of the rose math
+/  algorithm -- provided as a class example and about which more information can be
+/  found here: https://en.wikipedia.org/wiki/Rose_(mathematics). My decision to
+/  utilize this code as extensively was solely for aesthetic purposes.
 */
 
 // CREATE VARIABLES
@@ -52,8 +55,6 @@ function draw() {
     strokeWeight(1);
 
     // DRAW BACKGROUND
-    // change stroke and background color at midnight and noon
-    // change background color (outer square) based on the second
     backgroundDraw();
 
     // DRAW MANDALA DESIGN
@@ -90,15 +91,26 @@ function backgroundDraw() {
 
     // map background (outer blue square) color to the second
     // midnight blue: rgb(25, 25, 112)
-    // zero to twenty-nine seconds
+    // from zero to twenty-nine seconds color fades in
     r1 = map(s, 0, 59, 152, 26);
     g1 = map(s, 0, 59, 152, 26);
     b1 = map(s, 0, 59, 226, 113);
 
-    // thirty to fifty-nine seconds
     r2 = map(s, 0, 59, 25, 151);
     g2 = map(s, 0, 59, 25, 151);
     b2 = map(s, 0, 59, 112, 225);
+
+    let fadein = color(r1, g1, b1);
+    let fadeout = color(r2, g2, b2);
+
+    // change the background color based on the second to create a cyclical pattern of
+    // the color being the lightest at zero seconds, and darkest at 30 seconds
+    // reverse the pattern at second 31
+    if ((s >= 0) & (s <= 29)) {
+        background(fadein);
+    } else if ((s >= 30) & (s <= 59)) {
+        background(fadeout);
+    }
 
     // at exactly midnight, noon and every three hours in between
     // change the stroke color to gold
@@ -106,15 +118,6 @@ function backgroundDraw() {
         stroke(255, 215, 0); // gold
     } else {
         stroke(250, 128, 114); // salmon
-    }
-
-    // change the background color based on the second to create a cyclical pattern of
-    // the color being the lightest at zero seconds, and darkest at 30 seconds
-    // reverse the pattern at second 31
-    if ((s >= 0) & (s <= 29)) {
-        background(r1, g1, b1);
-    } else if ((s >= 30) & (s <= 59)) {
-        background(r2, g2, b2);
     }
 
 } // close backgroundDraw function

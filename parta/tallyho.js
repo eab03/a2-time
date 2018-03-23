@@ -47,11 +47,11 @@ function mousePressed() {
             for (let i = 20; i < 100; i = i + 20) { // create a space in between each line (20 pixels)
                 // if the loop count is less than the total number of mouse clicks, draw a line and increment the loop count
                 if (loopCount < mouseClicks) {
-                    // console.log("line:" + loopCount + " - clicks: " + mouseClicks);
                     stroke(255);
                     strokeWeight(4);
                     line(x + i, y, x + i, y + 50); // draw line
                     loopCount++; // increment loop count
+                    // console.log("line:" + loopCount + " - clicks: " + mouseClicks);
                 }
             }
             // if the loop count is still less than the number of mouse clicks, draw a fifth diagonal line
